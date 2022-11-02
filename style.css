@@ -1,5 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@400;500;700;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  background-color: #121214;
+  background-image: url("./assets/bg-blue.svg");
+  background-position-x: center;
+  background-position-y: 55.6%;
+  height: 100vh;
+}
+
+#app {
+  margin: 52px auto;
+  width: fit-content;
+}
+
+header {
+  margin-bottom: 63px;
+  text-align: center;
+}
+
+main {
+  height: auto;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 32px;
+  padding: 0 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 23px 0;
+  background: #1d1c19;
+  border-bottom: 2px solid #f7dd43;
+  border-radius: 6px;
+}
+
+.card h2 {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  color: #f7dd43;
+  font-weight: 700;
+  font-size: 24px;
+  border-radius: 6px;
+  border: 1px solid #746615;
+  margin-bottom: 52px;
+}
+
+.card h2 span {
+  color: #e1e1e6;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card ul {
+  list-style: none;
+  width: 270px;
+}
+
+.card ul li {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card ul li strong {
+  font-size: 36px;
+  font-weight: 900;
+  color: #e1e1e6;
+}
+
+.card ul li + li {
+  border-top: 1px solid #323238;
+}
+
+.flag {
+  width: 50px;
+  height: 50px;
 }
