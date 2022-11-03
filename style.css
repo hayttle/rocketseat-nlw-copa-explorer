@@ -41,6 +41,7 @@ main {
   background: #1d1c19;
   border-bottom: 2px solid #f7dd43;
   border-radius: 6px;
+  margin-bottom: 30px;
 }
 
 .card h2 {
