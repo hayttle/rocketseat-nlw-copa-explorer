@@ -11,10 +11,9 @@ body {
   align-items: center;
   font-family: "Roboto", sans-serif;
   background-color: #121214;
-  background-image: url("./assets/bg-blue.svg");
+  background-image: url("./assets/img/bg-blue.svg");
   background-position-x: center;
-  background-position-y: 55.6%;
-  height: 100vh;
+  background-position-y: -715px;
 }
 
 #app {
@@ -28,9 +27,8 @@ header {
 }
 
 main {
-  height: auto;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   gap: 32px;
   padding: 0 24px;
 }
