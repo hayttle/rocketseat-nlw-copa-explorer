@@ -1,3 +1,30 @@
+const matches = []
+const daysOfWeek = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+
+// fetch("./assets/matches.json")
+//   .then((res) => res.json())
+//   .then((data) => {
+
+//     data.forEach((match) => {
+//       const date = new Date(match.DateUtc)
+//       const day = date.getDate()
+//       const month = date.getMonth() + 1
+//       const hour = date.getHours()
+//       const minutes = date.getMinutes()
+//       const dayOfWeek = date.getDay()
+
+//       matches.push({
+//         homeTeam: match.HomeTeam,
+//         day: day,
+//         month: month,
+//         hour: hour,
+//         minutes: minutes,
+//         dayOfWeek: daysOfWeek[dayOfWeek],
+//         awayTeam: match.AwayTeam,
+//       })
+//     })
+//   })
+
 function createGame(player1, hour, player2) {
   return `
     <li>
