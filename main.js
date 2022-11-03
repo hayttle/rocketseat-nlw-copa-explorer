@@ -722,8 +722,6 @@ matchesWorldCup2022.map((key) => {
   key.dayOfWeek = daysOfWeek[dayOfWeek]
 })
 
-
-
 const playerNotDefined = [
   "1A",
   "2A",
@@ -744,22 +742,16 @@ const playerNotDefined = [
   "To be announced",
 ]
 
-document.querySelector("#app").innerHTML = `
-<header>
-<img src="./assets/img/logo.svg" alt="" class="Logo da NLW">
-</header>
-`
-
 function createGame(player1, hour, player2) {
   return `
   <li>
-  <img src="./assets/flags/${
-    playerNotDefined.some((v) => player1 === v) ? "wait" : player1
-  }.svg" alt="Bandeira do ${player1}" class="flag" title="${player1}">
-  <strong>${hour}</strong>
-  <img src="./assets/flags/${
-    playerNotDefined.some((v) => player2 === v) ? "wait" : player2
-  }.svg" alt="Bandeira do ${player2}" class="flag" title="${player2}">
+    <img src="./assets/flags/${
+      playerNotDefined.some((v) => player1 === v) ? "wait" : player1
+    }.svg" alt="Bandeira do ${player1}" class="flag" title="${player1}">
+    <strong>${hour}</strong>
+    <img src="./assets/flags/${
+      playerNotDefined.some((v) => player2 === v) ? "wait" : player2
+    }.svg" alt="Bandeira do ${player2}" class="flag" title="${player2}">
   </li>
   `
 }
@@ -776,13 +768,9 @@ function createCard(date, day, games) {
 }
 
 matchesWorldCup2022.forEach((match) => {
-  document.querySelector("#app").innerHTML += `
-  <main id="cards">
-    ${createCard(
-      match.DateUtc,
-      match.dayOfWeek,
-      createGame(match.HomeTeam, match.time, match.AwayTeam)
-    )}      
-  </main>
-  `
+  document.querySelector("#cards").innerHTML += createCard(
+    match.DateUtc,
+    match.dayOfWeek,
+    createGame(match.HomeTeam, match.time, match.AwayTeam)
+  )
 })

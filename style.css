@@ -26,9 +26,10 @@ header {
   text-align: center;
 }
 
-main {
+#cards {
   display: flex;
-  /* flex-direction: column; */
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 32px;
   padding: 0 24px;
 }
