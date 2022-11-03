@@ -704,6 +704,7 @@ const matchesWorldCup2022 = [
     AwayTeamScore: null,
   },
 ]
+
 const daysOfWeek = [
   "Domingo",
   "Segunda",
@@ -713,6 +714,7 @@ const daysOfWeek = [
   "Sexta",
   "Sábado",
 ]
+
 matchesWorldCup2022.map((key) => {
   const date = new Date(key.DateUtc)
   const time = `${date.getHours()}:00`
