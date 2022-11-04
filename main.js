@@ -705,14 +705,24 @@ const games = [
   },
 ]
 
-const daysOfWeek = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+const daysOfWeek = [
+  "Domingo",
+  "Segunda",
+  "Terça",
+  "Quarta",
+  "Quinta",
+  "Sexta",
+  "Sábado",
+]
 
 games.forEach((game) => {
   const dateTime = new Date(game.DateUtc)
-  const date = `${dateTime.getDate() < 10 ? "0" + dateTime.getDate() : dateTime.getDate()}/${dateTime.getMonth() + 1}`
-  const time = `${dateTime.getHours() < 10 ? "0" + dateTime.getHours() : dateTime.getHours()}:${
-    dateTime.getMinutes() === 0 ? "00" : ""
-  }`
+  const date = `${
+    dateTime.getDate() < 10 ? "0" + dateTime.getDate() : dateTime.getDate()
+  }/${dateTime.getMonth() + 1}`
+  const time = `${
+    dateTime.getHours() < 10 ? "0" + dateTime.getHours() : dateTime.getHours()
+  }:${dateTime.getMinutes() === 0 ? "00" : ""}`
   const dayOfWeek = dateTime.getDay()
   game.date = date
   game.time = time
@@ -750,19 +760,26 @@ function createGame(player1, hour, player2) {
   return `
   <li>
     <img src="./assets/flags/${
-      playerNotDefined.some((v) => player1 === v) ? "wait" : player1.toLowerCase()
+      playerNotDefined.some((v) => player1 === v)
+        ? "wait"
+        : player1.toLowerCase()
     }.svg" alt="Bandeira do ${player1}" class="flag" title="${player1.toLowerCase()}">
     <strong>${hour}</strong>
     <img src="./assets/flags/${
-      playerNotDefined.some((v) => player2 === v) ? "wait" : player2.toLowerCase()
+      playerNotDefined.some((v) => player2 === v)
+        ? "wait"
+        : player2.toLowerCase()
     }.svg" alt="Bandeira do ${player2}" class="flag" title="${player2.toLowerCase()}">
   </li>
   `
 }
 
+let delay = -0.3
+
 function createCard(date, day) {
+  delay += 0.3
   return `
-  <div class="card">
+  <div class="card" style="animation-delay: ${delay}s">
     <h2>${date} <span>${day}</span></h2>
     <ul data-js=${date}>
     </ul>
@@ -774,7 +791,10 @@ const object = groupedByDate(games, "date")
 
 for (const day in object) {
   const dayObj = object[day]
-  document.querySelector("#cards").innerHTML += createCard(day, dayObj[0].dayOfWeek)
+  document.querySelector("#cards").innerHTML += createCard(
+    day,
+    dayObj[0].dayOfWeek
+  )
   let htmlContent = ""
   for (const date in dayObj) {
     const dateObj = dayObj[date]
