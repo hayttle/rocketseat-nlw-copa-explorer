@@ -1,4 +1,4 @@
-const matchesWorldCup2022 = [
+const games = [
   {
     MatchNumber: 1,
     RoundNumber: 1,
@@ -705,24 +705,26 @@ const matchesWorldCup2022 = [
   },
 ]
 
-const daysOfWeek = [
-  "Domingo",
-  "Segunda",
-  "Terça",
-  "Quarta",
-  "Quinta",
-  "Sexta",
-  "Sábado",
-]
+const daysOfWeek = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
 
-matchesWorldCup2022.map((key) => {
-  const date = new Date(key.DateUtc)
-  const time = `${date.getHours()}:00`
-  const dayOfWeek = date.getDay()
-  key.DateUtc = `${date.getDate()}/${date.getMonth() + 1}`
-  key.time = time
-  key.dayOfWeek = daysOfWeek[dayOfWeek]
+games.forEach((game) => {
+  const dateTime = new Date(game.DateUtc)
+  const date = `${dateTime.getDate() < 10 ? "0" + dateTime.getDate() : dateTime.getDate()}/${dateTime.getMonth() + 1}`
+  const time = `${dateTime.getHours() < 10 ? "0" + dateTime.getHours() : dateTime.getHours()}:${
+    dateTime.getMinutes() === 0 ? "00" : ""
+  }`
+  const dayOfWeek = dateTime.getDay()
+  game.date = date
+  game.time = time
+  game.dayOfWeek = daysOfWeek[dayOfWeek]
 })
+
+const groupedByDate = function (xs, key) {
+  return xs.reduce(function (rv, x) {
+    ;(rv[x[key]] = rv[x[key]] || []).push(x)
+    return rv
+  }, {})
+}
 
 const playerNotDefined = [
   "1A",
@@ -758,21 +760,25 @@ function createGame(player1, hour, player2) {
   `
 }
 
-function createCard(date, day, games) {
+function createCard(date, day) {
   return `
   <div class="card">
     <h2>${date} <span>${day}</span></h2>
-    <ul>
-    ${games}
+    <ul data-js=${date}>
     </ul>
   </div>
   `
 }
 
-matchesWorldCup2022.forEach((match) => {
-  document.querySelector("#cards").innerHTML += createCard(
-    match.DateUtc,
-    match.dayOfWeek,
-    createGame(match.HomeTeam, match.time, match.AwayTeam)
-  )
-})
+const object = groupedByDate(games, "date")
+
+for (const day in object) {
+  const dayObj = object[day]
+  document.querySelector("#cards").innerHTML += createCard(day, dayObj[0].dayOfWeek)
+  let htmlContent = ""
+  for (const date in dayObj) {
+    const dateObj = dayObj[date]
+    htmlContent += createGame(dateObj.HomeTeam, dateObj.time, dateObj.AwayTeam)
+  }
+  document.querySelector(`[data-js='${day}']`).innerHTML += htmlContent
+}
