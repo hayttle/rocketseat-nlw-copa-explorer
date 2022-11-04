@@ -759,17 +759,23 @@ const playerNotDefined = [
 function createGame(player1, hour, player2) {
   return `
   <li>
+  <div class="teamName">
     <img src="./assets/flags/${
       playerNotDefined.some((v) => player1 === v)
         ? "wait"
         : player1.toLowerCase()
-    }.svg" alt="Bandeira do ${player1}" class="flag" title="${player1.toLowerCase()}">
+    }.svg" alt="Bandeira do ${player1}" class="flag">
+    <p>${player1.toUpperCase().replace("-", " ")}</p>
+    </div>
     <strong>${hour}</strong>
+    <div class="teamName">
     <img src="./assets/flags/${
       playerNotDefined.some((v) => player2 === v)
         ? "wait"
         : player2.toLowerCase()
-    }.svg" alt="Bandeira do ${player2}" class="flag" title="${player2.toLowerCase()}">
+    }.svg" alt="Bandeira do ${player2}" class="flag">
+    <p>${player2.toUpperCase().replace("-", " ")}</p>
+    </div>
   </li>
   `
 }

@@ -69,29 +69,28 @@ header {
 }
 
 .btn-theme-yellow {
-  background-image: linear-gradient(#181818e6,#746615);
+  background-image: linear-gradient(#181818e6, #746615);
 }
 
-.btn-theme-yellow:hover{
-  background-image: linear-gradient(#746615,#181818e6);
+.btn-theme-yellow:hover {
+  background-image: linear-gradient(#746615, #181818e6);
 }
 
 .btn-theme-blue {
-  background-image: linear-gradient(#181818e6,#338af3);
+  background-image: linear-gradient(#181818e6, #338af3);
 }
 
-.btn-theme-blue:hover{
-  background-image: linear-gradient(#338af3,#181818e6);
+.btn-theme-blue:hover {
+  background-image: linear-gradient(#338af3, #181818e6);
 }
 
 .btn-theme-green {
-  background-image: linear-gradient(#181818e6,#047c3f);
+  background-image: linear-gradient(#181818e6, #047c3f);
 }
 
-.btn-theme-green:hover{
-  background-image: linear-gradient(#047c3f,#181818e6);
+.btn-theme-green:hover {
+  background-image: linear-gradient(#047c3f, #181818e6);
 }
-
 
 #cards {
   display: flex;
@@ -176,6 +175,19 @@ header {
 .card {
   opacity: 0;
   animation: appear 3s forwards;
+}
+
+.teamName {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 75px;
+}
+
+.teamName p {
+  font-size: 10px;
+  color: #eee;
 }
 
 @keyframes appear {
