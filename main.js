@@ -802,3 +802,19 @@ for (const day in object) {
   }
   document.querySelector(`[data-js='${day}']`).innerHTML += htmlContent
 }
+
+btnThemeYellow = document.querySelector(".btn-theme-yellow")
+btnThemeBlue = document.querySelector(".btn-theme-blue")
+btnThemeGreen = document.querySelector(".btn-theme-green")
+
+btnThemeYellow.addEventListener("click", () => {
+  document.body.className = "yellow"
+})
+
+btnThemeBlue.addEventListener("click", () => {
+  document.body.className = "blue"
+})
+
+btnThemeGreen.addEventListener("click", () => {
+  document.body.className = "green"
+})
