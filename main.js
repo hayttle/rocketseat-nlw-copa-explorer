@@ -750,12 +750,12 @@ function createGame(player1, hour, player2) {
   return `
   <li>
     <img src="./assets/flags/${
-      playerNotDefined.some((v) => player1 === v) ? "wait" : player1
-    }.svg" alt="Bandeira do ${player1}" class="flag" title="${player1}">
+      playerNotDefined.some((v) => player1 === v) ? "wait" : player1.toLowerCase()
+    }.svg" alt="Bandeira do ${player1}" class="flag" title="${player1.toLowerCase()}">
     <strong>${hour}</strong>
     <img src="./assets/flags/${
-      playerNotDefined.some((v) => player2 === v) ? "wait" : player2
-    }.svg" alt="Bandeira do ${player2}" class="flag" title="${player2}">
+      playerNotDefined.some((v) => player2 === v) ? "wait" : player2.toLowerCase()
+    }.svg" alt="Bandeira do ${player2}" class="flag" title="${player2.toLowerCase()}">
   </li>
   `
 }
