@@ -19,6 +19,7 @@ const playerNotDefined = [
   "2H",
   "To be announced",
 ]
+
 const cardsContainer = document.querySelector("#cards")
 const themeContainer = document.querySelector("#theme")
 
