@@ -50,7 +50,7 @@ header {
   text-align: center;
 }
 
-.theme {
+#theme {
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -68,27 +68,27 @@ header {
   transition: all 0.3s ease;
 }
 
-.btn-theme-yellow {
+#yellow {
   background-image: linear-gradient(#181818e6, #746615);
 }
 
-.btn-theme-yellow:hover {
+#yellow:hover {
   background-image: linear-gradient(#746615, #181818e6);
 }
 
-.btn-theme-blue {
+#blue {
   background-image: linear-gradient(#181818e6, #338af3);
 }
 
-.btn-theme-blue:hover {
+#blue:hover {
   background-image: linear-gradient(#338af3, #181818e6);
 }
 
-.btn-theme-green {
+#green {
   background-image: linear-gradient(#181818e6, #047c3f);
 }
 
-.btn-theme-green:hover {
+#green:hover {
   background-image: linear-gradient(#047c3f, #181818e6);
 }
 
