@@ -59,17 +59,21 @@ const createGame = (player1, hour, player2) => {
   </li>
   `
 }
+
+const formatUnit = (unit) => (unit < 10 ? "0" + unit : unit)
+
+const formatMinutes = (minutes) => (minutes === 0 ? "00" : minutes)
+
 const mapDataFromArrayGames = () => {
   games.forEach((game) => {
     const dateTime = new Date(game.DateUtc)
-    const date = `${dateTime.getDate() < 10 ? "0" + dateTime.getDate() : dateTime.getDate()}/${dateTime.getMonth() + 1}`
-    const time = `${dateTime.getHours() < 10 ? "0" + dateTime.getHours() : dateTime.getHours()}:${
-      dateTime.getMinutes() === 0 ? "00" : ""
-    }`
+    const month = dateTime.getMonth() + 1
+    const date = `${formatUnit(dateTime.getDate())}/${month}`
+    const time = `${formatUnit(dateTime.getHours())}:${formatMinutes(dateTime.getMinutes())}`
     const dayOfWeek = dateTime.getDay()
     game.date = date
     game.time = time
-    game.dayOfWeek = daysOfWeek[dayOfWeek]
+    game.nameDayOfWeek = daysOfWeek[dayOfWeek]
   })
 }
 
@@ -89,7 +93,7 @@ const renderGames = () => {
 
   for (const date in gamesGroupedByDate) {
     const gamesOnTheDate = gamesGroupedByDate[date]
-    const nameDayOfWeek = gamesOnTheDate[0].dayOfWeek
+    const nameDayOfWeek = gamesOnTheDate[0].nameDayOfWeek
     cardsContainer.innerHTML += createCard(date, nameDayOfWeek)
 
     htmlContent = ""
